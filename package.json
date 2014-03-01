@@ -1,0 +1,38 @@
+{
+  "name": "generator-atom",
+  "version": "0.0.0",
+  "description": "Yeoman generator for making atom edtior packages.",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "hemanth/generator-atom",
+  "author": {
+    "name": "hemanth.hm",
+    "email": "hemanth.hm@gmail.com",
+    "url": "https://github.com/hemanth"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "atom.io",
+    "atom",
+    "github"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

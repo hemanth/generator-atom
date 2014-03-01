@@ -1,0 +1,14 @@
+{
+  "name": "<%= slugname %>",
+  "main": "./lib/<%= slugname %>",
+  "version": "0.0.0",
+  "description": "<%= props.description %>",
+  "license": "<%= props.license %>",
+  "private": true,
+  "repository": "https://github.com/<%= props.ghname%>/<%= slugname %>",
+  "engines": {
+    "atom": ">0.61.0"
+  },
+  "dependencies": {
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "awesome",
+  "main": "./lib/awesome",
+  "version": "0.0.0",
+  "description": "",
+  "license": "",
+  "private": true,
+  "repository": "https://github.com/hemanth/awesome",
+  "engines": {
+    "atom": ">0.61.0"
+  },
+  "dependencies": {
+  }
+}
