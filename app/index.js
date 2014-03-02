@@ -141,7 +141,7 @@ util.inherits(AtomGenerator, yeoman.generators.NamedBase);
     this.copy('travis.yml', '.travis.yml');
     this.template('README.md');
     this.template('_package.json', 'package.json');
-    this.template('_index.coffee', 'index.coffee')
+    this.template('index.coffee', 'index.coffee')
   };
 
 module.exports = AtomGenerator;
