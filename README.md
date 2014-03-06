@@ -2,8 +2,21 @@
 
 > [Yeoman](http://yeoman.io) generator for generating packages for [atom](http://atom.io) editor.
 
+![snap](http://h3manth.com/i/8c769012ee.png)
 
-## Getting Started
+To install generator-atom from npm, run:
+
+```
+$ npm install -g generator-atom
+```
+
+Finally, initiate the generator:
+
+```
+$ yo atom
+```
+
+
 
 ### What is Yeoman?
 
@@ -23,17 +36,6 @@ $ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-atom from npm, run:
-
-```
-$ npm install -g generator-atom
-```
-
-Finally, initiate the generator:
-
-```
-$ yo atom
-```
 
 ### Getting To Know Yeoman
 
