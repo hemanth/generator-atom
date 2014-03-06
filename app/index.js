@@ -30,54 +30,61 @@ util.inherits(AtomGenerator, yeoman.generators.NamedBase);
     console.log(chalk.magenta('You\'re using the fantastic Atom generator.'));
 
     var prompts = [{
-      name: 'name',
-      message: 'What would like name your atom package?',
-      default: path.basename(process.cwd())
-    },{
-      name: 'description',
-      message: 'Descirbe your package in one-line:',
-      default: 'My awesome atom package!'
-    },{
-      name: 'license',
-      message: 'What license would apply for this package?',
-      default: 'MIT'
-    },{
-      name: 'ghname',
-      message: 'What\'s your github username?',
-    },{
-      name: 'grammars',
-      message: 'Are you using any grammars?',
-      default: 'no'
-    },{
-      name: 'keymaps',
-      message: 'Are you using keymaps?',
-      default: 'no'
-    },{
-      name: 'menus',
-      message: 'Are you adding menus?',
-      default: 'no'
-    },{
-      name: 'snippets',
-      message: 'Are you writing any snippets?',
-      default: 'no'
-    },{
-      name: 'stylesheets',
-      message: 'Are you doing some stylesheets?',
-      default: 'no'
-    }];
+        name: 'name',
+        message: 'What would like name your atom package?',
+        default: path.basename(process.cwd())
+      },{
+        name: 'description',
+        message: 'Descirbe your package in one-line:',
+        default: 'My awesome atom package!'
+      },{
+        name: 'license',
+        message: 'What license would apply for this package?',
+        default: 'MIT'
+      },{
+        name: 'ghname',
+        message: 'What\'s your github username?',
+      },{
+        type: 'checkbox',
+        name: 'features',
+        message: 'Are you using?',
+        choices: [{
+            name: 'Keymaps',
+            value: 'keymap',
+            checked: true
+          },{
+            name: 'Grammars',
+            value: 'grammar',
+            checked: false
+          },{
+            name: 'Menus',
+            value: 'menu',
+            checked: false
+          },{
+            name: 'Snippets',
+            value: 'snippet',
+            checked: false
+          },{
+            name: 'StyleSheets',
+            value: 'style',
+            checked: false
+          }]
+      }];
 
     this.currentYear = (new Date()).getFullYear();
 
     this.prompt(prompts, function (props) {
+
+      var features = props.features;
       this.slugname = this._.slugify(props.name);
       this.description = props.description;
       this.license = props.license;
       this.ghname = props.ghname;
-      this.grammars = props.grammars;
-      this.keymaps = props.keymaps;
-      this.menus = props.menus;
-      this.snippets = props.snippets;
-      this.stylesheets = props.stylesheets;
+      this.grammar = features.indexOf('grammar') !== -1;
+      this.keymap = features.indexOf('keymap') !== -1;
+      this.menu = features.indexOf('menu') !== -1;
+      this.snippet = features.indexOf('snippet') !== -1;
+      this.style = features.indexOf('style') !== -1;
 
       this.props = props;
 
@@ -93,28 +100,28 @@ util.inherits(AtomGenerator, yeoman.generators.NamedBase);
   };
 
   AtomGenerator.prototype.grammars = function grammars() {
-    if(this.grammars.toLowerCase() === "yes") {
+    if(this.grammar) {
       this.mkdir('grammars');
       this.template('grammars/grammar.cson','grammars/grammar.cson');
     }
   };
 
   AtomGenerator.prototype.keymaps = function keymaps() {
-    if(this.keymaps.toLowerCase() === "yes") {
+    if(this.keymaps) {
       this.mkdir('keymaps');
       this.template('keymaps/keymap.cson','keymaps/keymap.cson');
     }
   };
 
   AtomGenerator.prototype.stylesheets = function stylesheets() {
-    if(this.stylesheets.toLowerCase() === "yes") {
+    if(this.style) {
       this.mkdir('stylesheets');
       this.template('stylesheets/style.css','stylesheets/style.css');
     }
   };
 
   AtomGenerator.prototype.menus = function menus() {
-    if(this.menus.toLowerCase() === "yes") {
+    if(this.menu) {
       this.mkdir('menus');
       this.template('menus/application-menu.cson','menus/application-menu.cson');
       this.template('menus/context-menu.cson','menus/context-menu.cson');
@@ -122,7 +129,7 @@ util.inherits(AtomGenerator, yeoman.generators.NamedBase);
   };
 
   AtomGenerator.prototype.snippets = function snippets() {
-    if(this.snippets.toLowerCase() === "yes") {
+    if(this.snippet) {
       this.mkdir('snippets');
       this.template('snippets/language.cson','snippets/language.cson');
     }

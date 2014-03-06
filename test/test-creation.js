@@ -38,11 +38,7 @@ describe('atom generator', function () {
     helpers.mockPrompt(this.app, {
       'name': 'awesome',
       'ghname': 'hemanth',
-      'grammars': 'yes',
-      'keymaps': 'yes',
-      'stylesheets': 'yes',
-      'menus': 'yes',
-      'snippets': 'yes'
+      'features':['grammar','keymap','style','menu','snippet']
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
