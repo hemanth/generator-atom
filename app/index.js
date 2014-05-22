@@ -35,7 +35,7 @@ util.inherits(AtomGenerator, yeoman.generators.NamedBase);
         default: path.basename(process.cwd())
       },{
         name: 'description',
-        message: 'Descirbe your package in one-line:',
+        message: 'Describe your package in one-line:',
         default: 'My awesome atom package!'
       },{
         name: 'license',
